@@ -1,0 +1,52 @@
+
+1. 创建测试表
+```sql
+truncate table tmp.test;
+drop table tmp.test;
+create table tmp.test(
+  id serial,type int,level int,operator int,
+  object_id jsonb,object_names json,filter json,tags text[]);
+```
+2. 插入脚本
+```sh
+#!/bin/bash
+let i=0
+
+while true; do
+
+    psql test <<EOF
+     insert into tmp.test(
+        type,level,operator,object_id,object_names, filter,tags)
+    select s.id,l.id,o.id,'{"user":"$i","device":"$i","location":"$i"}',
+      '{"user":"user$i","device":"device$i","location":"location$i"}',
+      '{"user":"user$i","device":"device$i","location":"location$i"}',
+        null
+    from (select generate_series(1,1000) as id) s,
+        (select generate_series(1,5) as id) l,
+        (select generate_series(1,100) as id) as o
+EOF
+    let i=i+1
+    if (( i > 20 )); then
+        break
+    fi
+done
+
+exit 0
+
+
+```
+
+3. 创建索引
+```sql
+create index test_idx1 on tmp.test using gin(
+  ((filter->>'user')::text) gin_trgm_ops,
+  ((filter->>'device')::text) gin_trgm_ops,
+  ((filter->>'location')::text) gin_trgm_ops,
+  object_id);
+
+```
+
+4. 查询性能测试
+```sql
+select * from tmp.test where filter->>'user' ~ 'user1000';
+```
