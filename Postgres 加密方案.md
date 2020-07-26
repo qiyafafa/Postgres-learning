@@ -14,7 +14,7 @@
 -- https://github.com/digoal/blog/blob/d7336aeb9fc9cc82714189f16d67d22e47f9d369/201607/20160727_02.md
 -- https://github.com/digoal/blog/blob/d7336aeb9fc9cc82714189f16d67d22e47f9d369/201506/20150601_01.md
   
-## Need to do now
+## Todo
 ### 超级用户只允许从本地连接，不允许从网络连接
 ### 超级用户密码修改
 ### 合理的密码更换周期
