@@ -16,7 +16,10 @@
 # 对关键敏感数据进行加密
 -- https://github.com/digoal/blog/blob/d7336aeb9fc9cc82714189f16d67d22e47f9d369/201607/20160727_02.md
 
-  
+# FIPS
+-- https://help.deepsecurity.trendmicro.com/11_0/azure/fips-140-2.html#PostgreSQL
+-- https://csrc.nist.gov/Projects/Cryptographic-Module-Validation-Program/Certificate/3125
+
 ## Todo
 ### 超级用户只允许从本地连接，不允许从网络连接
 ### 超级用户密码修改
