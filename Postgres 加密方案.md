@@ -17,8 +17,19 @@
 -- https://github.com/digoal/blog/blob/d7336aeb9fc9cc82714189f16d67d22e47f9d369/201607/20160727_02.md
 
 # FIPS
+RHEL OpenSSL FIPS compliant modules
+-- https://csrc.nist.gov/Projects/Cryptographic-Module-Validation-Program/Certificate/3130
 -- https://help.deepsecurity.trendmicro.com/11_0/azure/fips-140-2.html#PostgreSQL
 -- https://csrc.nist.gov/Projects/Cryptographic-Module-Validation-Program/Certificate/3125
+
+## The steps to enable FIPS on Postgres Database
+-- https://stackoverflow.com/questions/12056994/enable-fips-on-postgresql-database (Need to test)
+
+## PostgreSQL can definitely be run in FIPS mode on a properly configured RHEL system. See the answer below regarding the STIG by buzz3791.
+Need to test
+
+## Enable fips in centos 
+-- https://www.thegeekdiary.com/how-to-make-centos-rhel-7-fips-140-2-compliant/ (need to test)
 
 ## Todo
 ### 超级用户只允许从本地连接，不允许从网络连接
